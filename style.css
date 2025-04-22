@@ -1,20 +1,109 @@
-const faders = document.querySelectorAll('.fade-in');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap');
 
-window.addEventListener('scroll', () => {
-  faders.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
-    }
-  });
-});
+* {
+  box-sizing: border-box;
+}
 
-// Trigger fade-in for elements already in view on page load
-window.addEventListener('load', () => {
-  faders.forEach(el => {
-    const rect = el.getBoundingClientRect();
-    if (rect.top < window.innerHeight - 100) {
-      el.classList.add('visible');
-    }
-  });
-});
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  background: #f0f2f5;
+  color: #1a1a1a;
+  line-height: 1.6;
+}
+
+nav {
+  background: #007acc;
+  padding: 1rem;
+  text-align: center;
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  margin: 0 1rem;
+  font-weight: 600;
+  transition: color 0.3s ease;
+}
+
+nav a:hover {
+  color: #ffeb3b;
+}
+
+header {
+  background: white;
+  padding: 4rem 1rem;
+  text-align: center;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+}
+
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 0.5rem;
+}
+
+section {
+  padding: 3rem 1rem;
+  max-width: 800px;
+  margin: 2rem auto;
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.05);
+}
+
+h2 {
+  color: #007acc;
+}
+
+.project-card {
+  background: #f9f9f9;
+  padding: 1.5rem;
+  border-radius: 8px;
+  margin-top: 1.5rem;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-card img {
+  max-width: 100%;
+  border-radius: 6px;
+  margin-top: 1rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2rem 1rem;
+  font-size: 0.9rem;
+  color: #666;
+  background: #e0e0e0;
+  margin-top: 3rem;
+}
+
+.fade-in {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+
+.fade-in.visible {
+  opacity: 1;
+  transform: none;
+}
+
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+
+  nav a {
+    display: inline-block;
+    margin: 0.5rem;
+  }
+
+  section {
+    padding: 2rem 1rem;
+  }
+}
